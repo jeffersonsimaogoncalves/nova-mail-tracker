@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use jdavidbakr\MailTracker\Model\SentEmail;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Number;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Resource;
@@ -71,9 +72,10 @@ class MailTracker extends Resource
             Text::make('sender_email'),
             Text::make('recipient_name'),
             Text::make('recipient_email'),
+            Text::make('headers')->hideFromIndex(),
             Textarea::make('content')->hideFromIndex(),
-            Text::make('opens')->hideFromIndex(),
-            Text::make('clicks')->hideFromIndex(),
+            Number::make('opens')->hideFromIndex(),
+            Number::make('clicks')->hideFromIndex(),
             Text::make('message_id')->hideFromIndex(),
             Text::make('meta')->hideFromIndex(),
             Date::make('opened_at')->hideFromIndex(),
