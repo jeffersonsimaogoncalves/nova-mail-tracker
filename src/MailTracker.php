@@ -5,7 +5,10 @@ namespace Stonkeep\NovaMailTracker;
 
 use Illuminate\Http\Request;
 use jdavidbakr\MailTracker\Model\SentEmail;
+use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Resource;
 
 class MailTracker extends Resource
@@ -44,17 +47,6 @@ class MailTracker extends Resource
 //        return __('nova-permission-tool::navigation.sidebar-label');
 //    }
 
-    /**
-     * Determine if this resource is available for navigation.
-     *
-     * @param  Request  $request
-     * @return bool
-     */
-    public static function availableForNavigation(Request $request): bool
-    {
-        return true;
-    }
-
     public static function label()
     {
         return 'Mails Tracker';
@@ -75,6 +67,17 @@ class MailTracker extends Resource
     {
         return [
             ID::make()->sortable(),
+            Text::make('sender_name'),
+            Text::make('sender_email'),
+            Text::make('recipient_name'),
+            Text::make('recipient_email'),
+            Textarea::make('content')->hideFromIndex(),
+            Text::make('opens')->hideFromIndex(),
+            Text::make('clicks')->hideFromIndex(),
+            Text::make('message_id')->hideFromIndex(),
+            Text::make('meta')->hideFromIndex(),
+            Date::make('opened_at')->hideFromIndex(),
+            Date::make('clicked_at')->hideFromIndex(),
         ];
     }
 
