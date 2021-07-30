@@ -68,18 +68,18 @@ class MailTracker extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('sender_name'),
-            Text::make('sender_email'),
-            Text::make('recipient_name'),
-            Text::make('recipient_email'),
-            Text::make('headers')->hideFromIndex(),
-            Text::make('content')->hideFromIndex()->asHtml(),
-            Number::make('opens')->hideFromIndex(),
-            Number::make('clicks')->hideFromIndex(),
-            Text::make('message_id')->hideFromIndex(),
-            Text::make('meta')->hideFromIndex(),
-            Date::make('opened_at')->hideFromIndex(),
-            Date::make('clicked_at')->hideFromIndex(),
+            Text::make(__('nova-mail-tracker-tool::sent-email.sender_name'), 'sender_name'),
+            Text::make(__('nova-mail-tracker-tool::sent-email.sender_email'), 'sender_email'),
+            Text::make(__('nova-mail-tracker-tool::sent-email.recipient_name'), 'recipient_name'),
+            Text::make(__('nova-mail-tracker-tool::sent-email.recipient_email'), 'recipient_email'),
+            Text::make(__('nova-mail-tracker-tool::sent-email.headers'), 'headers')->hideFromIndex(),
+            Text::make(__('nova-mail-tracker-tool::sent-email.content'), 'content')->hideFromIndex()->asHtml(),
+            Number::make(__('nova-mail-tracker-tool::sent-email.opens'), 'opens')->hideFromIndex(),
+            Number::make(__('nova-mail-tracker-tool::sent-email.clicks'), 'clicks')->hideFromIndex(),
+            Text::make(__('nova-mail-tracker-tool::sent-email.message_id'), 'message_id')->hideFromIndex(),
+            Text::make(__('nova-mail-tracker-tool::sent-email.meta'), 'meta')->hideFromIndex(),
+            Date::make(__('nova-mail-tracker-tool::sent-email.opened_at'), 'opened_at')->hideFromIndex(),
+            Date::make(__('nova-mail-tracker-tool::sent-email.clicked_at'), 'clicked_at')->hideFromIndex(),
         ];
     }
 

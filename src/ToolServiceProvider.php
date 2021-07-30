@@ -15,7 +15,11 @@ class ToolServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-//        $this->loadViewsFrom(__DIR__.'/../resources/views', 'nova-mail-tracker');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'nova-mail-tracker-tool');
+
+        $this->publishes([
+            __DIR__.'/../resources/lang' => resource_path('lang/vendor/nova-mail-tracker-tool'),
+        ], 'nova-mail-tracker-tool');
 
         $this->app->booted(function () {
             $this->routes();
