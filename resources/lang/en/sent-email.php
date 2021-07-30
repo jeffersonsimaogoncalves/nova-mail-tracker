@@ -5,6 +5,7 @@ return [
     'sender_email' => 'Sender Email',
     'recipient_name' => 'Recipient Name',
     'recipient_email' => 'Recipient Email',
+    'subject' => 'Subject',
     'headers' => 'Headers',
     'content' => 'Content',
     'opens' => 'Opens',

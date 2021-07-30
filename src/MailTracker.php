@@ -35,18 +35,9 @@ class MailTracker extends Resource
      * @var array
      */
     public static $search = [
-        'id',
+        'id', 'sender_email', 'recipient_email', 'subject'
     ];
 
-//    /**
-//     * Get the logical group associated with the resource.
-//     *
-//     * @return string
-//     */
-//    public static function group(): string
-//    {
-//        return __('nova-permission-tool::navigation.sidebar-label');
-//    }
 
     public static function label()
     {
@@ -72,6 +63,7 @@ class MailTracker extends Resource
             Text::make(__('nova-mail-tracker-tool::sent-email.sender_email'), 'sender_email'),
             Text::make(__('nova-mail-tracker-tool::sent-email.recipient_name'), 'recipient_name'),
             Text::make(__('nova-mail-tracker-tool::sent-email.recipient_email'), 'recipient_email'),
+            Text::make(__('nova-mail-tracker-tool::sent-email.subject'), 'subject'),
             Text::make(__('nova-mail-tracker-tool::sent-email.headers'), 'headers')->hideFromIndex(),
             Text::make(__('nova-mail-tracker-tool::sent-email.content'), 'content')->hideFromIndex()->asHtml(),
             Number::make(__('nova-mail-tracker-tool::sent-email.opens'), 'opens')->hideFromIndex(),
@@ -91,7 +83,9 @@ class MailTracker extends Resource
      */
     public function cards(Request $request): array
     {
-        return [];
+        return [
+            EmailsPerDay::make(),
+        ];
     }
 
     /**

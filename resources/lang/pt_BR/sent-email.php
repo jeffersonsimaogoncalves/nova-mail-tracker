@@ -4,6 +4,7 @@
         'sender_email' => 'E-mail do Remetente',
         'recipient_name' => 'Destinatário',
         'recipient_email' => 'Email do Destinatário',
+        'subject' => 'Assunto',
         'headers' => 'Header',
         'content' => 'Conteúdo',
         'opens' => 'Quantidade de aberturas',
