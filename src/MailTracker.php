@@ -73,7 +73,7 @@ class MailTracker extends Resource
             Text::make('recipient_name'),
             Text::make('recipient_email'),
             Text::make('headers')->hideFromIndex(),
-            Textarea::make('content')->hideFromIndex(),
+            Text::make('content')->hideFromIndex()->asHtml(),
             Number::make('opens')->hideFromIndex(),
             Number::make('clicks')->hideFromIndex(),
             Text::make('message_id')->hideFromIndex(),
